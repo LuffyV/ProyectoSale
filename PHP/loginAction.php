@@ -5,7 +5,7 @@
  * Date: 3/05/15
  * Time: 01:34 PM
  */
-include "nuevoConsultas.php";
+include "operacionesMysqli.php";
 
 $TName = "Clientes";
 
@@ -17,7 +17,7 @@ $usrpass = $_POST['pass'];
 $query = "SELECT * FROM $TName WHERE Usuario ='$username' AND Contrasena ='$usrpass'";
 
 //Verificando el resultado de la consulta.
-$count = mysqli_num_rows(realizarConsulta($query))or die("No existe el usuario");
+$count = mysqli_num_rows(ejecutarQuery($query))or die("No existe el usuario");
 
 if($count == 1) {
     session_start();

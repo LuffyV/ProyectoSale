@@ -7,7 +7,6 @@
 	<script src="JS/funciones.js"></script>
 </head>
 <body class="normal">
-<center>
 <h1 class="title">$ALE!</h1>
 <form name="login" action="PHP/loginAction.php" method="post" accept-charset="utf-8">
 	<div>Login:<br>
@@ -18,6 +17,5 @@
 	<a href="registro.php">¡Registrate!</a>
 	</div>
 </form>
-</center>
 </body>
 </html>

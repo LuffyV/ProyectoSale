@@ -51,7 +51,6 @@ var passconf = document.getElementById("pass2").value;
 		document.getElementById("name").focus();
 		return false;
 	}else{
-		
 		if(email.length==0){
 			alert("El correo electrónico no puede estar en blanco");
 			document.getElementById("mail").focus();

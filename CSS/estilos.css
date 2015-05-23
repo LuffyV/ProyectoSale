@@ -4,7 +4,7 @@ form{
 	width: auto;
 	height: auto;
 	top: 50%; left: 50%;
-	transform: translate(-50%, -50%);
+	transform: translate(-60%, -80%);
 	background-color: #1E90FF;
 	color: #fff;
 	padding: 15px;
@@ -20,6 +20,7 @@ form{
     padding: 20px;
     top: 8.0%; left: 0;
     position: absolute;
+    text-align: center;
 }
 
 .barra {
@@ -47,11 +48,11 @@ a:visited {
 
 .menuizq {
     clear: both;
-    width: auto;
     height: auto;
     float: left;
-    padding: 3%;
+    padding: 2%;
     background-color: #1E90FF;
+    width: 70px;
 }
 
 .itemMenu {
@@ -61,17 +62,18 @@ a:visited {
     text-shadow: 1.5px 1.5px gray;
 }
 
-.buscar {
-    background-image: url("Sources/search.png");
-}
 
 .title{
 	position: absolute;
 	top: 40%; left: 50%;
-	transform: translate(-50%, -200%);
+	transform: translate(-60%, -230%);
 	color: white;
 	font-family: "Adobe Heiti Std";
 	font-size: 80px;
+}
+
+input:focus {
+    background-color: #B0E0E6;
 }
 
 a{
