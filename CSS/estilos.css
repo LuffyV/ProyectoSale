@@ -1,0 +1,79 @@
+form{
+	font-family: "Adobe Heiti Std";
+	position: absolute;
+	width: auto;
+	height: auto;
+	top: 50%; left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #1E90FF;
+	color: #fff;
+	padding: 15px;
+	z-index: 2;
+	-webkit-box-shadow: 0 10px 6px -6px #777;
+	   -moz-box-shadow: 0 10px 6px -6px #777;
+	        box-shadow: 0 10px 6px -6px #777;
+}
+
+.normal {
+	background-color: #00BFFF;
+    width: 100%; height: 100%;
+    padding: 20px;
+    top: 8.0%; left: 0;
+    position: absolute;
+}
+
+.barra {
+	background-color: #1E90FF;
+    position: absolute;
+    width: 100%;
+    top: 0; left: 0;
+    padding: 10px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: large;
+    text-align: center;
+
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+
+.menuizq {
+    clear: both;
+    width: auto;
+    height: auto;
+    float: left;
+    padding: 3%;
+    background-color: #1E90FF;
+}
+
+.itemMenu {
+    float: left;
+    color: #ffffff;
+    font-weight: bold;
+    text-shadow: 1.5px 1.5px gray;
+}
+
+.buscar {
+    background-image: url("Sources/search.png");
+}
+
+.title{
+	position: absolute;
+	top: 40%; left: 50%;
+	transform: translate(-50%, -200%);
+	color: white;
+	font-family: "Adobe Heiti Std";
+	font-size: 80px;
+}
+
+a{
+	color: #0000FF;
+}

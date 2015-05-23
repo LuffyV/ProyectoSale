@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - Ventas@localhost" uuid="2fda45a5-60c9-46d6-843e-3f98ed4ef9ae">
+    <database-info product="MySQL" version="5.6.21" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <schema name="" catalog="Tarea5"/>
+    <schema name="" catalog="Ventas"/>
+    <table name="Categoria" schema="" catalog="Tarea5" type="TABLE">
+      <column name="cod_cat" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="desc_c" sqlType="VARCHAR" precision="80" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="cod_cat"/>
+      <exported-key name="Disco_ibfk_1" table="Disco" schema="" catalog="Tarea5" columns="cod_cat"/>
+    </table>
+    <table name="Disco" schema="" catalog="Tarea5" type="TABLE">
+      <column name="cod_d" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="nom_d" sqlType="VARCHAR" precision="80" scale="0" nullable="false" jdbcType="12"/>
+      <column name="cod_i" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="cant_d" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="cod_s" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="cod_cat" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="precio_d" sqlType="FLOAT" precision="12" scale="0" nullable="false" jdbcType="7"/>
+      <column name="fec_d" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <primary-key name="PRIMARY" columns="cod_d"/>
+      <foreign-key name="Disco_ibfk_1" columns="cod_cat" ref-table="Categoria" ref-schema="" ref-catalog="Tarea5" ref-columns="cod_cat" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="Disco_ibfk_2" columns="cod_i" ref-table="Interprete" ref-schema="" ref-catalog="Tarea5" ref-columns="cod_i" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="Disco_ibfk_3" columns="cod_d" ref-table="Pedidos_d" ref-schema="" ref-catalog="Tarea5" ref-columns="cod_d" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="Disco_ibfk_4" columns="cod_s" ref-table="Sello" ref-schema="" ref-catalog="Tarea5" ref-columns="cod_s" update-rule="0" delete-rule="0" deferrability="2"/>
+    </table>
+    <table name="Interprete" schema="" catalog="Tarea5" type="TABLE">
+      <column name="cod_i" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="desc_i" sqlType="VARCHAR" precision="80" scale="0" nullable="false" jdbcType="12"/>
+      <exported-key name="Disco_ibfk_2" table="Disco" schema="" catalog="Tarea5" columns="cod_i"/>
+      <index name="unique_cod_i" unique="true" columns="cod_i"/>
+      <index name="cod_i" unique="false" columns="cod_i"/>
+    </table>
+    <table name="Pedidos_d" schema="" catalog="Tarea5" type="TABLE">
+      <column name="cod_p" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="cod_d" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="cant_d" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <foreign-key name="Pedidos_d_ibfk_1" columns="cod_p" ref-table="Pedidos_m" ref-schema="" ref-catalog="Tarea5" ref-columns="cod_p" update-rule="0" delete-rule="0" deferrability="2"/>
+      <exported-key name="Disco_ibfk_3" table="Disco" schema="" catalog="Tarea5" columns="cod_d"/>
+      <index name="unique_cod_d" unique="true" columns="cod_d"/>
+      <index name="unique_cod_p" unique="true" columns="cod_p"/>
+    </table>
+    <table name="Pedidos_m" schema="" catalog="Tarea5" type="TABLE">
+      <column name="cod_p" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="cod_u" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fec_p" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="fin_p" sqlType="VARCHAR" precision="1" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="cod_p"/>
+      <foreign-key name="Pedidos_m_ibfk_1" columns="cod_u" ref-table="Usuario" ref-schema="" ref-catalog="Tarea5" ref-columns="cod_u" update-rule="0" delete-rule="0" deferrability="2"/>
+      <exported-key name="Pedidos_d_ibfk_1" table="Pedidos_d" schema="" catalog="Tarea5" columns="cod_p"/>
+      <index name="cod_u_2" unique="false" columns="cod_u"/>
+    </table>
+    <table name="Sello" schema="" catalog="Tarea5" type="TABLE">
+      <column name="cod_s" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="desc_s" sqlType="VARCHAR" precision="80" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="cod_s"/>
+      <exported-key name="Disco_ibfk_4" table="Disco" schema="" catalog="Tarea5" columns="cod_s"/>
+    </table>
+    <table name="Usuario" schema="" catalog="Tarea5" type="TABLE">
+      <column name="cod_u" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="nick_u" sqlType="VARCHAR" precision="80" scale="0" nullable="false" jdbcType="12"/>
+      <column name="pass_u" sqlType="VARCHAR" precision="80" scale="0" nullable="false" jdbcType="12"/>
+      <exported-key name="Pedidos_m_ibfk_1" table="Pedidos_m" schema="" catalog="Tarea5" columns="cod_u"/>
+      <index name="unique_cod_u" unique="true" columns="cod_u"/>
+    </table>
+    <table name="Clientes" schema="" catalog="Ventas" type="TABLE">
+      <column name="Id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Nombre" sqlType="VARCHAR" precision="80" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Direccion" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Mail" sqlType="VARCHAR" precision="80" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Usuario" sqlType="VARCHAR" precision="80" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Contrasena" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="Id"/>
+    </table>
+  </data-source>
+</component>
