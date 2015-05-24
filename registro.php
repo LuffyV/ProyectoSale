@@ -8,7 +8,7 @@
 </head>
 <body class="normal">
 <center>
-	<form name="registro" action="PHP/registro.php" method="post" accept-charset="utf-8" onSubmit = "return validarRegistro()"><h3>Registro:</h3>
+	<form enctype="multipart/form-data" name="registro" action="PHP/registro.php" method="post" accept-charset="utf-8" onSubmit = "return validarRegistro()"><h3>Registro:</h3>
 	<table>
 		<tr>
 			<td>
@@ -66,7 +66,14 @@
 				<input type="password" name="pass2" id="pass2">
 			</td>
 		</tr>
-
+		<tr>
+			<td>
+				Imagen de perfil:
+			</td>
+			<td>
+				<input type="file" name="img" id="img">
+			</td>
+		</tr>
 	</table>
 	<input type="submit" value="¡Registrate!">
 	</form>
