@@ -13,11 +13,10 @@ class admnPublicaciones {
     private $TName = "Publicacion";
 
     public function publicar (Publicacion $publicacion){
-        global $TName;
-        $Query = "INSERT INTO $TName (IDUsuario, Producto, Descripcion, Precio, Existencia, FechaPublicacion) VALUES ('".$publicacion->getIdUsuario()."','".$publicacion->getProducto()."','".$publicacion->getDescripcion()."','".$publicacion->getPrecio()."','".$publicacion->getExistencia()."','".$publicacion->getFecha()."')";
 
+        $Query = "INSERT INTO $this->TName (IDUsuario, Producto, Descripcion, Precio, Existencia, FechaPublicacion) VALUES ('".$publicacion->getIdUsuario()."','".$publicacion->getProducto()."','".$publicacion->getDescripcion()."','".$publicacion->getPrecio()."','".$publicacion->getExistencia()."','".$publicacion->getFecha()."')";
         $isPublicado = ejecutarQuery($Query);
-
+        echo $Query;
         if($isPublicado){
             echo "Se ha publicado perfectamente.";
         } else {

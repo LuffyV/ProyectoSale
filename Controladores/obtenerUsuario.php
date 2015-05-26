@@ -8,4 +8,11 @@
 
 include_once "../PHP/Modelos/Usuario.php";
 include_once "../PHP/operacionesMysqli.php";
+include_once "../PHP/admnUsuarios.php";
 
+$admnUsuarios = new admnUsuarios();
+
+function obtenerUsuario(){
+    global $admnUsuarios;
+    return $admnUsuarios->obtenerIDUsuario();
+}

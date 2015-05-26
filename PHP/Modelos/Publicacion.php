@@ -15,8 +15,7 @@ class Publicacion {
     private $Existencia;
     private $Fecha;
 
-    function __construct($IdUsuario, $Producto, $Descripcion, $Precio, $Existencia)
-    {
+    function __construct($IdUsuario, $Producto, $Precio, $Existencia, $Descripcion) {
         $this->IdUsuario = $IdUsuario;
         $this->Producto = $Producto;
         $this->Descripcion = $Descripcion;

@@ -25,4 +25,21 @@ class admnUsuarios {
             header('refresh: 3; url = ../registro.php');
         }
     }
+
+    public function obtenerIDUsuario(){
+        session_start();
+        $Query = "SELECT * FROM $this->TName WHERE Usuario ='".$_SESSION['username']."'";
+        $Result = ejecutarQuery($Query);
+        foreach ($Result as $usuario) {
+            $idUsuario = $usuario['Id'];
+            $Nombre = $usuario['Nombre'];
+            $Direccion = $usuario['Nombre'];
+            $Mail = $usuario['Mail'];
+            $Usuario = $usuario['Usuario'];
+            $Contrasena = $usuario['Contrasena'];
+            $UsuarioActual = new Usuario($Nombre,$Direccion,$Mail,$Usuario,$Contrasena);
+            $UsuarioActual->setIdUsuario($idUsuario);
+            return $UsuarioActual->getIdUsuario();
+        }
+    }
 }

@@ -7,14 +7,17 @@
  */
 include "operacionesMysqli.php";
 
-$TName = "Clientes";
+$TName = "Usuarios";
 
 //Obteniendo el usuario y contraseña de la página.
 $username = $_POST['name'];
-$usrpass = $_POST['pass'];
+$usrpass = md5($_POST['pass']);
+
+echo $usrpass;
 
 //Creando la consulta.
 $query = "SELECT * FROM $TName WHERE Usuario ='$username' AND Contrasena ='$usrpass'";
+echo $query;
 
 //Verificando el resultado de la consulta.
 $count = mysqli_num_rows(ejecutarQuery($query))or die("No existe el usuario");
