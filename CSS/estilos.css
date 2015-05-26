@@ -1,4 +1,4 @@
-form{
+.util{
 	font-family: "Adobe Heiti Std";
 	position: absolute;
 	width: auto;
@@ -55,6 +55,15 @@ a:visited {
     width: 70px;
 }
 
+.feed {
+    margin: 0 auto;
+    padding: 1%;
+    background-color: #1E90FF;
+    width: 500px;
+    text-align: left;
+    color: aliceblue;
+}
+
 .itemMenu {
     float: left;
     color: #ffffff;
@@ -76,6 +85,14 @@ input:focus {
     background-color: #B0E0E6;
 }
 
-a{
-	color: #0000FF;
+textarea:focus {
+    height: 6em;
+    resize: none;
+}
+
+@font-face {
+    font-family: miFuente; /* requerido */
+    src: source;                        /* requerido */
+    font-weight: weight;                /* opcional */
+    font-style: style;                /* opcional */
 }

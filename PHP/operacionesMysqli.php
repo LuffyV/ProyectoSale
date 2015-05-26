@@ -13,7 +13,7 @@ $sDBPassword = "";
 
 //Conectando a la base de datos.
 $link = new mysqli($sDBServer,$sDBUserName,$sDBPassword,$sDBName)or die("No podemos conectar a la Base de datos");
-mysqli_select_db($link,$sDBName)or die("No se puede encontrar la tabla");
+mysqli_select_db($link,$sDBName)or die("No se puede encontrar la Base de datos");
 
 function ejecutarQuery($query){
     global $link;

@@ -23,9 +23,6 @@ if ($_FILES["img"]["type"]=="image/jpeg" || $_FILES["img"]["type"]=="image/pjpeg
     if($IsCreated){
         echo "Se ha creado un nuevo registro de clientes";
         header('refresh: 3; url = ../index.php');
-    } else {
-        echo "Ya existe este usuario.";
-        header('refresh: 3; url = ../registro.php');
     }
 }
 }

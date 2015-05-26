@@ -25,9 +25,16 @@ $Result = mysqli_fetch_array(ejecutarQuery($Query));
         <?php header("Content-type:".$Result["Tipo"]);
         echo $Result["Imagen"];?>
     </div>
-    <div>
+    <div class="feed">
+        <form action="Controladores/insertarPublicacion.php" method="post">
+            Producto: <input type="text" name="prod" id="prod" size="10"> Precio: <input type="text" name="prec" id="prec" size="5"> Stock: <input type="text" id="stock" name="stock"><br>
+            Descripción:<br> <textarea name="desc" id="text" rows="2" cols="60"></textarea><br><br>
+            <input type="submit" value="Publicar" >
+        </form>
+    </div><br>
+    <div class="feed">
         Menu centro
-    </div>
+    </div><br>
 </div>
 </body>
 </html>
