@@ -16,11 +16,15 @@ class admnPublicaciones {
 
         $Query = "INSERT INTO $this->TName (IDUsuario, Producto, Descripcion, Precio, Existencia, FechaPublicacion) VALUES ('".$publicacion->getIdUsuario()."','".$publicacion->getProducto()."','".$publicacion->getDescripcion()."','".$publicacion->getPrecio()."','".$publicacion->getExistencia()."','".$publicacion->getFecha()."')";
         $isPublicado = ejecutarQuery($Query);
-        echo $Query;
         if($isPublicado){
-            echo "Se ha publicado perfectamente.";
+            header("location:../perfil.php");
         } else {
             echo "Ha habido un error";
         }
+    }
+
+    public function obtenerPublicaciones($idUsuario){
+        $Query = "SELECT * FROM $this->TName WHERE IDUsuario ='".$idUsuario."'";
+        return ejecutarQuery($Query);
     }
 }

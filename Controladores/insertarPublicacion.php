@@ -10,7 +10,7 @@ include_once "../PHP/Modelos/Publicacion.php";
 include_once "../PHP/admnPublicaciones.php";
 include "obtenerUsuario.php";
 
-$IdUsuario = obtenerUsuario();
+$IdUsuario = obtenerIdUsuario();
 $Producto = $_POST['prod'];
 $Precio = $_POST['prec'];
 $Stock = $_POST['stock'];
@@ -20,5 +20,4 @@ $Fecha = date('Y-m-d H:i:s');
 $Publicacion = new Publicacion($IdUsuario,$Producto,$Precio,$Stock,$Descripcion);
 
 $admnPublicaciones = new admnPublicaciones();
-echo $IdUsuario;
 $admnPublicaciones->publicar($Publicacion);

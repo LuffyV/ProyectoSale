@@ -112,6 +112,15 @@ class Publicacion {
     }
 
     /**
+     * @param mixed $Fecha
+     */
+    public function setFecha($Fecha)
+    {
+        $this->Fecha = $Fecha;
+    }
+
+
+    /**
      * @return mixed
      */
     public function getIdPublicacion()

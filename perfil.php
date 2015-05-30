@@ -6,8 +6,10 @@
  * Time: 12:43 PM
  */
 
-include "PHP/verificador.php";
-include "PHP/operacionesMysqli.php";
+include_once "PHP/verificador.php";
+include_once "PHP/operacionesMysqli.php";
+include_once "PHP/admnPublicaciones.php";
+include_once "PHP/admnUsuarios.php";
 
 $Query = "SELECT Imagen FROM Clientes WHERE Nombre = ".$_SESSION['username'];
 $Result = mysqli_fetch_array(ejecutarQuery($Query));
@@ -32,9 +34,27 @@ $Result = mysqli_fetch_array(ejecutarQuery($Query));
             <input type="submit" value="Publicar" >
         </form>
     </div><br>
-    <div class="feed">
-        Menu centro
-    </div><br>
+        <?php
+        $admnUsuario = new admnUsuarios();
+        $admnPublicaciones = new admnPublicaciones();
+        $publicaciones = $admnPublicaciones->obtenerPublicaciones($admnUsuario->obtenerIDUsuario());
+
+        foreach ($publicaciones as $publicacionActual) {
+            $IDPublicacion = $publicacionActual['IDPublicacion'];
+            $IDUsuario = $publicacionActual['IDUsuario'];
+            $Producto = $publicacionActual['Producto'];
+            $Descripcion = $publicacionActual['Descripcion'];
+            $Precio = $publicacionActual['Precio'];
+            $Existencia = $publicacionActual['Existencia'];
+            $Fecha = $publicacionActual['FechaPublicacion'];
+            $Publicacion = new Publicacion($IDUsuario,$Producto,$Precio,$Existencia,$Descripcion);
+            $Publicacion->setIdPublicacion($IDPublicacion);
+            $Publicacion->setFecha($Fecha);
+            echo "<div class='feed'>
+<h1>$Producto</h1>
+</div><br>";
+        }
+        ?>
 </div>
 </body>
 </html>

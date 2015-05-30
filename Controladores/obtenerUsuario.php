@@ -12,7 +12,7 @@ include_once "../PHP/admnUsuarios.php";
 
 $admnUsuarios = new admnUsuarios();
 
-function obtenerUsuario(){
+function obtenerIdUsuario(){
     global $admnUsuarios;
     return $admnUsuarios->obtenerIDUsuario();
 }

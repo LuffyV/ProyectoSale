@@ -7,8 +7,10 @@
  */
 include_once "Modelos/Usuario.php";
 include_once "operacionesMysqli.php";
+session_start();
 
 class admnUsuarios {
+
     private $TName = "Usuarios";
 
     public function registrarUsuario(Usuario $usuario){
@@ -26,8 +28,7 @@ class admnUsuarios {
         }
     }
 
-    public function obtenerIDUsuario(){
-        session_start();
+    public function obtenerUsuario(){
         $Query = "SELECT * FROM $this->TName WHERE Usuario ='".$_SESSION['username']."'";
         $Result = ejecutarQuery($Query);
         foreach ($Result as $usuario) {
@@ -39,7 +40,17 @@ class admnUsuarios {
             $Contrasena = $usuario['Contrasena'];
             $UsuarioActual = new Usuario($Nombre,$Direccion,$Mail,$Usuario,$Contrasena);
             $UsuarioActual->setIdUsuario($idUsuario);
-            return $UsuarioActual->getIdUsuario();
+            return $UsuarioActual;
+        }
+    }
+
+    public function obtenerIDUsuario(){
+        $Query = "SELECT Id FROM $this->TName WHERE Usuario ='".$_SESSION['username']."'";
+        $result = ejecutarQuery($Query);
+
+        foreach ($result as $usuario) {
+            $idUsuario = $usuario['Id'];
+            return $idUsuario;
         }
     }
 }
